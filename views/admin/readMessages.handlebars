@@ -1,0 +1,32 @@
+{{#section 'head'}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="../images/socialimage.png">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="../img/icons/faviconAdmin.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="alternate" hreflang="{{lang.name}}" href="{{pageurl}}{{langUrl}}">
+{{/section}}
+
+<main>
+    <h1 class="title">show message {{count}}</h1>
+    {{#each mess}}
+        <div class="readMessage">
+            <div class="readMessageTitle">
+                <h6>{{username}}</h6>
+                <h6>{{usermail}}</h6>
+            </div>
+            <div class="readMessageBody">
+                <h6>{{usermessage}}</h6>
+            </div>
+        </div>
+    {{/each}}
+</main>
+
+{{#section 'scripts'}}
+        <script src="/scripts/jquery-3.2.1.min.js"></script>
+        <script src="/scripts/admin/error.js"></script>
+
+{{/section}}

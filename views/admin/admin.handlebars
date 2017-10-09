@@ -1,0 +1,48 @@
+{{#section 'head'}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="../images/socialimage.png">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="../img/icons/faviconAdmin.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="alternate" hreflang="{{lang.name}}" href="{{pageurl}}{{langUrl}}">
+{{/section}}
+
+<main>
+    <h1 class="title">admin</h1>
+    <div class="adminswichpanel">
+        <div class="adminswich">
+            <h5>messages count: {{#if messCount}}{{messCount}}{{else}}nocout{{/if}}</h5>
+            <input class="btn-green" onclick="send('readMessages')" value="читати листи">
+        </div>
+        <div class="adminswich">
+            <h5>conferenceApp count: {{#if confAppCount}}{{confAppCount}}{{else}}nocout{{/if}}</h5>
+            <input class="btn-green" onclick="send('readConfApp')" value="читати заявки">
+        </div>
+        <div class="adminswich">
+            <h3>conference coun: {{#if divCount}}{{divCount}}{{else}}nocout{{/if}} </h3>
+            <input class="btn-green" onclick="send('addDivision')" value="додати конференцію +">
+        </div>
+    </div>
+    {{#each conf}}
+    <div class="showconf">
+        <div class="center">
+            {{title}}
+            {{confDate}} 
+        </div>
+        <div>
+            <input class="btn btn-grey" onclick="send('saveConfApp', '{{_id}}')" type="button" value="edit">
+            <input class="btn btn-red remove" onclick="deleteConf('{{_id}}')" type="button" value="x">
+        </div>
+    </div>
+    {{/each}}
+</main>
+
+{{#section 'scripts'}}
+        <script src="/scripts/jquery-3.2.1.min.js"></script>
+        <script src="/scripts/admin/error.js"></script>
+        <script src="/scripts/admin/admin.js"></script>
+        <script src="/scripts/admin/deleteConf.js"></script>
+{{/section}}

@@ -1,0 +1,38 @@
+{{#section 'head'}}
+    <meta name="description" content="{{metadescription}}">
+    <meta name="keywords" content="{{metakeywords}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="../images/socialimage.png">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="../img/icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="alternate" hreflang="{{lang.name}}" href="{{pageurl}}{{langUrl}}">
+{{/section}}
+
+<main class="animated fadeIn">
+    <div>
+        <h3 class="title">про нас</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis magnam libero maxime molestiae explicabo sapiente ex error accusantium! Minus, corrupti beatae eos voluptatum recusandae consequuntur quo provident tenetur nesciunt autem?</p>
+    </div>
+    <div class="form">
+        <label for="form">Напишіть нам повідомлення</label>
+    </div>
+        <form>
+            <input id="name" type="text" placeholder="your name">
+            <input id="email" type="email" placeholder="your email">
+            <input id="message" type="textarea" placeholder="your message">
+            <input class="btn" type="button" onclick="send()" value="send">
+        </form>
+        <div id="mess"></div>
+</main>
+
+
+{{#section 'scripts'}}
+        <script src="/scripts/jquery-3.2.1.min.js"></script>
+        <script src="/scripts/client/sendMail.js"></script>
+        <script src="/scripts/client/error.js"></script>
+
+{{/section}}

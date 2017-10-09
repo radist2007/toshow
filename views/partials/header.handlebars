@@ -1,0 +1,32 @@
+<div class="page-wrapper">
+    <header>
+        <nav>
+            <div>
+{{#if admin}}
+                <ul>
+                    <li><div>Ви війшли як: {{username}}</div></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="/">site</a></li>
+                    <li><a href="/admin">admin</a></li>
+                    <li><div>conf</div></li>
+                    <li><a id="logout" href="/logout">logout</a></li>
+                </ul>
+{{else}}
+                <ul>
+                    <li><a href="/">головна</a></li>
+                    <li><a href="/confApp">заявка</a></li>
+                    <li><a href="/contacts">контакти</a></li>
+                    <li><a href="/about">про нас</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="/admin"><i class="fa fa-sign-in" aria-hidden="true"></i> login</a></li>
+                </ul>
+{{/if}}
+            </div>
+        </nav>
+    </header>

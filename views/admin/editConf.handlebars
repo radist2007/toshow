@@ -1,0 +1,32 @@
+{{#section 'head'}}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="../images/socialimage.png">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="../img/icons/faviconAdmin.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="alternate" hreflang="{{lang.name}}" href="{{pageurl}}{{langUrl}}">
+{{/section}}
+
+<main class="animated fadeIn">
+    <h1 class="title">edit conference {{conf.title}}</h1>
+    <div class="adminswichpanel">
+        <div class="adminswichpaneldivision">
+            <input id="title" type="text" value="{{conf.title}}">
+            <input id="confDate" type="text" value="{{conf.confDate}}">
+            <input id="description" type="text" value="{{conf.description}}">
+        </div>
+        <div>
+            <button class="btn btn-green" onclick="send('{{conf.id}}')">save</button>
+            <button class="btn btn-red" onclick="send('cansel')">cansel</button>
+        </div>
+    </div>
+</main>
+
+{{#section 'scripts'}}
+        <script src="/scripts/jquery-3.2.1.min.js"></script>
+        <script src="/scripts/admin/error.js"></script>
+        <script src="/scripts/admin/editConference.js"></script>
+{{/section}}

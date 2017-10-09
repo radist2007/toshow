@@ -1,0 +1,24 @@
+{{#section 'head'}}
+    <meta name="description" content="{{metadescription}}">
+    <meta name="keywords" content="{{metakeywords}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:image" content="../images/socialimage.png">
+    <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="../img/icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+{{/section}}
+
+<main class="animated fadeIn">
+    <h1>conference {{mess}}</h1>
+    <div class="title">{{conf.title}}</div>
+    <div>{{conf.confDate}}</div>
+    <div>{{conf.description}}</div>
+</main>
+
+{{#section 'scripts'}}
+        <script src="/scripts/client/sendMail.js"></script>
+
+{{/section}}
