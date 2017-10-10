@@ -28,34 +28,40 @@ $(document).ready(function(){
             //-------------------- showError(text, top) функция для отображения ошибки
             //-------------------- text - текст сообщения
             //-------------------- top - отступ от верха страницы
-            showError('Пожалуйста введите свое имя!', errorTopMargin);
+            // showError('Пожалуйста введите свое имя!', errorTopMargin);
+            console.log('Пожалуйста введите свое имя!');
         } else if (data.password == ''){
-            showError('Пожалуйста введите свой пароль!', errorTopMargin);
+            // showError('Пожалуйста введите свой пароль!', errorTopMargin);
+            console.log('Пожалуйста введите свой пароль!');
         } else if (!filterUsername.test(data.username)){
-            showError('Недопустимые символы в имени', errorTopMargin);
+            // showError('Недопустимые символы в имени', errorTopMargin);
+            console.log('Недопустимые символы в имени');
         } else if(!filterPassword.test(data.password)) {
-            showError('Недопустимые символы в пароле', errorTopMargin);
+            // showError('Недопустимые символы в пароле', errorTopMargin);
+            console.log('Недопустимые символы в пароле');
         } else {
 
-            //------------ { ДОПИСАНО БЭКЭНД-ДЕВЕЛОПЕРОМ
+            console.log('ajax()');
             $.ajax({
                 url: '/login',
                 type: 'POST',
                 dataType: 'json',
                 data: data,
                 error: function(){
-                    showError('Неверное имя или пароль!', errorTopMargin);
+                    // showError('Неверное имя или пароль!', errorTopMargin);
+                    console.log('ajax().error')
                 }
             }).done(function(data){
-
-                if (data.link){
-                    window.location.href = data.link;
-                } else {
-                    showError('Неверное имя или пароль!', errorTopMargin);
-                }
-
+                if(data){
+                    if (data.link){
+                        console.log('ajax().done: ' + JSON.stringify(data.link));
+                        window.location.href = data.link;
+                    } else {
+                        console.log('ajax().done err' + data)
+                        // showError('Неверное имя или пароль!', errorTopMargin);
+                    }
+                };
             })
         }
-        //------------ }
     })
 });

@@ -12,7 +12,7 @@ exports.get = function(req, res){
                 res.render('./admin/login');
             } else {
                 console.log("admin")
-                res.redirect('/admin/main');
+                res.redirect('./admin/main');
             }
         })
     } else {

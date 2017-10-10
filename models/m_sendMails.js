@@ -63,7 +63,9 @@ schema.statics = {
         var Count = this;
 
         Count.count({}, function(err, count){
-            if(count){
+            if(err){
+                throw new Error('Count err');
+            }else{
                 callback(count);
             }
         })

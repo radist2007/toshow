@@ -16,8 +16,10 @@ exports.post = function(req, res) {
 
                     if (err){
                         if (err === 403){
-                            res.send(Config.messages.error.auth);
+                            console.log('err: ' + Config.messages.error.auth);
+                            res.send({mess: Config.messages.error.auth});
                         }else{
+                            console.log(Config.messages.error.db);
                             res.send(Config.messages.error.db);
                         }
                     } else {
@@ -26,7 +28,7 @@ exports.post = function(req, res) {
                         req.session.username = admin.username;
                         console.log('logined: ' + admin._id);
                         console.log('logined: ' + admin.username);
-                        var link = "/admin/in";
+                        var link = "/admin/main";
                         res.send({link: link});
                     }
                 });

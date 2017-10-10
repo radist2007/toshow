@@ -1,17 +1,27 @@
 var Messages = require('../../models/m_sendMails').SendMail;
-var Conference = require('../../models/m_Conference').Conference;
+var Conference = require('../../models/m_conference').Conference;
 
 exports.get = function(req, res){
+    console.log('r_admin');
 
-    var adminname = req.session.username;
-    res.locals.metatitle = 'conference';
+    if(req.session.user){
+        var adminname = req.session.username;
+        console.log('adminname: ' + adminname);
+        res.locals.metatitle = 'conference';
 
-    Messages.countMessages(function(value){
-        Conference.findConferences(function(val){
-            var conf = val;
-            res.render('./admin/admin', {admin: true, username: adminname, messCount: value, conf});
+        Messages.countMessages(function(value){
+            console.log('r_admin -> Mess.countMess: ' + value);
+            Conference.findConferences(function(val){
+                console.log('r_admin -> Mess.countMess -> Conf.findConf: ' + 0);
+                var conf = val;
+                res.render('./admin/admin', {admin: true, username: adminname, messCount: value, conf});
+            })
         })
-    })
+
+    }else{
+        res.render('./admin/login');
+    }
+
 }
 
 exports.post = function(req, res){
@@ -23,6 +33,7 @@ exports.post = function(req, res){
             res.send({link: link});
         })
     }else if(req.body.todo == 'readMessages') {
+        console.log('r_admin + POST readMessages: ')
 
         var link = "/admin/readMessages";
         res.send({link: link});
@@ -40,10 +51,6 @@ exports.post = function(req, res){
         res.send({link: link});
 
     }
-
-
-
-
 
 }
 

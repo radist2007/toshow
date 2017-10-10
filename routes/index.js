@@ -32,9 +32,11 @@ module.exports = function(app){
     var Login = require('./R_admin/r_login');
     app.post('/login', Login.post);
     //------------------------------------------------------------ admin -//
+
     var routAdmin = require('./R_admin/r_admin');
     app.get('/admin/main', routAdmin.get);
     app.post('/admin/main', routAdmin.post);
+
     //------------------------------------------------------------ logout -//
     var Logout = require('./R_admin/r_logout');
     app.get('/logout', Logout.get);

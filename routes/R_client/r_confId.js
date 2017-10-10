@@ -1,5 +1,5 @@
 
-var Conference = require('../../models/m_Conference').Conference;
+var Conference = require('../../models/m_conference').Conference;
 
 
 

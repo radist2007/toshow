@@ -1,4 +1,4 @@
-var Conference = require('../../models/m_Conference').Conference;
+var Conference = require('../../models/m_conference').Conference;
 var myconfig = require('../../myconfig.js');
 
 
@@ -7,7 +7,6 @@ exports.get = function(req, res) {
     Conference.findConferences(function(val){
         var conf = val;
         res.locals.metatitle = 'conferenceApp';
-
         res.render('./client/conferenceApp', {conf});
     })
 }

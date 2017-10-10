@@ -114,14 +114,13 @@ schema.statics = {
         function(err){
 
             if (err){
-                log.error("------ DB ERROR ----- " + err);
                 callback(err);
             } else {
 
                 var admin = new Admin({
                     username: username,
                     password: password,
-                    rights:rights
+                    rights: rights
                 });
 
                 admin.save(function(err){

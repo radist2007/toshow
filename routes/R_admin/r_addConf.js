@@ -1,14 +1,20 @@
-var Conference = require('../../models/m_Conference').Conference;
+var Conference = require('../../models/m_conference').Conference;
 
 exports.get = function(req, res){
 
-    Conference.findConferences(function(val){
-        var conf = val;
-        var adminname = req.session.username;
-        console.log('addConf: ' + adminname);
+    if(req.session.user){
+        Conference.findConferences(function(val){
+            var conf = val;
+            var adminname = req.session.username;
+            console.log('addConf: ' + adminname);
 
-        res.render('./admin/addConf', {admin: true, username: adminname, conf});
-    })
+            res.render('./admin/addConf', {admin: true, username: adminname, conf});
+        })
+
+    }else{
+        res.render('./admin/login');
+    }
+
 }
 
 exports.post = function(req, res){

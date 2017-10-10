@@ -7,7 +7,7 @@ var MongoStore = require('connect-mongo');
 // var async = require('async');
 var favicon = require('express-favicon');
 
-// var common = require('./common');
+var common = require('./lib/common');
 var myconfig = require('./myconfig');
 
 var app = express();
@@ -45,6 +45,8 @@ app.use(session({
     resave: true,//перезаписывает в хранилище даже если сеанс никогда не изменялся
     saveUninitialized: true
 }));
+
+app.use(common.commonMiddleware);
 
 require('./routes')(app);
 
