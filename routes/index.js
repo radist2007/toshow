@@ -6,12 +6,17 @@ module.exports = function(app){
     //------------------------------------------------------------ home -//
     var Home = require('./R_client/r_home');
     app.get('/', Home.get);
+    app.get('/home', Home.get);
+
+    // app.get('/:lang', Home.get);
     //------------------------------------------------------------ conferences -//
     var confId = require('./R_client/r_confId')
     app.get('/conference/:id', confId.get);
+    // app.get('/conference/:id/:lang', confId.get);
     //------------------------------------------------------------ conferenceApp -//
     var ConfApp = require('./R_client/r_confApp');
     app.get('/confApp', ConfApp.get);
+    // app.get('/confApp/:lang', ConfApp.get);
     app.post('/confApp', ConfApp.post);
     //------------------------------------------------------------ contacts -//
     var Cont = require('./R_client/r_contacts');

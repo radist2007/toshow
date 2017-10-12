@@ -1,12 +1,14 @@
 var Conference = require('../../models/m_conference').Conference;
 
 exports.get = function(req, res) {
+    if(req.params.lang){
+        console.log('r_home -> req.params.lang-------------------------------' + req.params.lang)
+    }
+    if(req.query.language){
+        console.log('r_home -> req.qurey.language-------------------------------' + req.query.language)
+    }
 
-    Conference.findConferences(function(val){
-        var conf = val;
-        res.locals.metatitle = 'conference';
 
-        res.render('./client/home', {mess: "mes", conf});
-    })
+        res.render('./client/home');
 
 }

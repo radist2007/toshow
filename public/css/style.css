@@ -89,7 +89,7 @@ header nav ul li a:hover{
 main {
     flex-grow: 1;
     line-height: 1.8;
-    background-color: green;
+    /* background-color: green; */
 }
 
 footer {
@@ -262,3 +262,4 @@ input {
 .readMessageBody {
     background-color: var(--pieces-bg-color)
 }
+

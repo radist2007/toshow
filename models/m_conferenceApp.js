@@ -1,15 +1,16 @@
+
 var monguse = require('mongoose');
 var Schema = monguse.Schema;
 
 var schema = new Schema({
 
-    title: {
+    name: {
         type: String
     },
-    confDate: {
+    email: {
         type: String
     },
-    description: {
+    conference: {
         type: String
     }
 });
@@ -20,14 +21,14 @@ schema.index(
 
 schema.statics = {
 
-    createConference: function(title, confDate, description, callback){
+    createConference: function(name, email, conference, callback){
 
         var Conference = this;
 
         var conf = new Conference({
-            title: title,
-            confDate: confDate,
-            description: description,
+            name: name,
+            email: email,
+            coference: coference,
         });
         conf.save(function(err){
             if (err) {
@@ -39,18 +40,14 @@ schema.statics = {
             }
         });
     },
-    updataConference: function(confid, title, confDate, description, callback){
-        console.log('m_conference -> updataConference -> confid: ' + confid);
-        console.log('m_conference -> updataConference -> title: ' + title);
-        console.log('m_conference -> updataConference -> confDate: ' + confDate);
-        console.log('m_conference -> updataConference -> description: ' + description);
+    updataConference: function(confid, name, email, coference, callback){
 
         var Conference = this;
 
             var setParams = {};
-            setParams.title = title;
-            setParams.confDate = confDate;
-            setParams.description = description;
+            setParams.name = name;
+            setParams.email = email;
+            setParams.coference = coference;
 
             Conference.update(
                 {_id:confid},
@@ -111,4 +108,4 @@ schema.statics = {
     }
 };
 
-exports.Conference = monguse.model('Conference', schema);
+exports.ConferenceApp = monguse.model('ConferenceApp', schema);

@@ -10,7 +10,7 @@ myconfig.gmail = {
 //***************** Common *******************//
 //============================================================//
 myconfig.port = 7000;
-myconfig.companyname = "#BlondieBlog";
+myconfig.companyname = "radist2007";
 myconfig.homepath = "/home/aida/Work/node/javascript-backend";
 
 //============================================================//
@@ -88,6 +88,13 @@ myconfig.languages = [
 ];
 
 myconfig.locals = {
+    nav: {
+        home: {
+            default: 'головна',
+            ru: 'главная',
+            en: 'home'
+        }
+    },
     month: {
         default: ['Янв', 'Фев', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сен', 'Окт', 'Нояб', 'Дек'],
         de: ['Jan', 'Feb', 'März', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],

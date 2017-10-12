@@ -17,14 +17,18 @@
                 </ul>
 {{else}}
                 <ul>
-                    <li><a href="/">головна</a></li>
-                    <li><a href="/confApp">заявка</a></li>
+                    <li><a href="/{{urltail}}">головна</a></li>
+                    <li><a href="/confApp/{{urltail}}">заявка</a></li>
                     <li><a href="/contacts">контакти</a></li>
                     <li><a href="/about">про нас</a></li>
                 </ul>
             </div>
             <div>
                 <ul>
+                    <li><a href="{{urltail}}">{{urltail}}</a>
+                {{#each languages}}
+                    <li><a href="{{pageurl}}/?language={{name}}">{{name}}</a>
+                {{/each}}
                     <li><a href="/admin"><i class="fa fa-sign-in" aria-hidden="true"></i> login</a></li>
                 </ul>
 {{/if}}

@@ -53,8 +53,14 @@ require('./routes')(app);
 //************************* 404 ***********************************
 app.use(function(req, res){
     res.locals.metatitle = '404 Ничего не найдено';
-    res.locals.pagenoindex = 'yes';//_________________________________
     res.status(404).render('404');
+});
+
+// 500 error handler (middleware)
+app.use(function(err, req, res, next){
+	console.error('505: ' + err.stack);
+	res.status(500);
+	res.render('500');
 });
 
 app.listen(app.get('port'), function(){
